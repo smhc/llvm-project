@@ -146,7 +146,8 @@ IdentifierNamingCheck::IdentifierNamingCheck(StringRef Name,
     : RenamerClangTidyCheck(Name, Context), Context(Context), CheckName(Name),
       GetConfigPerFile(Options.get("GetConfigPerFile", true)),
       IgnoreFailedSplit(Options.get("IgnoreFailedSplit", false)),
-      IgnoreMainLikeFunctions(Options.get("IgnoreMainLikeFunctions", false)) {
+      IgnoreMainLikeFunctions(Options.get("IgnoreMainLikeFunctions", false)),
+      IgnoreShortNames(Options.get("IgnoreShortNames", 0)) {
 
   auto IterAndInserted = NamingStylesCache.try_emplace(
       llvm::sys::path::parent_path(Context->getCurrentFile()),
@@ -177,6 +178,7 @@ void IdentifierNamingCheck::storeOptions(ClangTidyOptions::OptionMap &Opts) {
   Options.store(Opts, "GetConfigPerFile", GetConfigPerFile);
   Options.store(Opts, "IgnoreFailedSplit", IgnoreFailedSplit);
   Options.store(Opts, "IgnoreMainLikeFunctions", IgnoreMainLikeFunctions);
+  Options.store(Opts, "IgnoreShortNames", IgnoreShortNames);
 }
 
 static bool matchesStyle(StringRef Name,
@@ -662,8 +664,12 @@ static StyleKind findStyleKind(
 static llvm::Optional<RenamerClangTidyCheck::FailureInfo> getFailureInfo(
     StringRef Name, SourceLocation Location,
     ArrayRef<llvm::Optional<IdentifierNamingCheck::NamingStyle>> NamingStyles,
-    StyleKind SK, const SourceManager &SM, bool IgnoreFailedSplit) {
+    StyleKind SK, const SourceManager &SM, bool IgnoreFailedSplit,
+    size_t IgnoreShortNames) {
   if (SK == SK_Invalid || !NamingStyles[SK])
+    return None;
+
+  if (Name.size() <= IgnoreShortNames)
     return None;
 
   const IdentifierNamingCheck::NamingStyle &Style = *NamingStyles[SK];
@@ -698,7 +704,7 @@ IdentifierNamingCheck::GetDeclFailureInfo(const NamedDecl *Decl,
   return getFailureInfo(
       Decl->getName(), Loc, NamingStyles,
       findStyleKind(Decl, NamingStyles, IgnoreMainLikeFunctions), SM,
-      IgnoreFailedSplit);
+      IgnoreFailedSplit, IgnoreShortNames);
 }
 
 llvm::Optional<RenamerClangTidyCheck::FailureInfo>
@@ -708,7 +714,8 @@ IdentifierNamingCheck::GetMacroFailureInfo(const Token &MacroNameTok,
 
   return getFailureInfo(MacroNameTok.getIdentifierInfo()->getName(), Loc,
                         getStyleForFile(SM.getFilename(Loc)),
-                        SK_MacroDefinition, SM, IgnoreFailedSplit);
+                        SK_MacroDefinition, SM, IgnoreFailedSplit,
+                        IgnoreShortNames);
 }
 
 RenamerClangTidyCheck::DiagInfo

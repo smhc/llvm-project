@@ -58,6 +58,7 @@ The following options are describe below:
  - :option:`GlobalPointerCase`, :option:`GlobalPointerPrefix`, :option:`GlobalPointerSuffix`
  - :option:`GlobalVariableCase`, :option:`GlobalVariablePrefix`, :option:`GlobalVariableSuffix`
  - :option:`IgnoreMainLikeFunctions`
+ - :option:`IgnoreShortNames`
  - :option:`InlineNamespaceCase`, :option:`InlineNamespacePrefix`, :option:`InlineNamespaceSuffix`
  - :option:`LocalConstantCase`, :option:`LocalConstantPrefix`, :option:`LocalConstantSuffix`
  - :option:`LocalConstantPointerCase`, :option:`LocalConstantPointerPrefix`, :option:`LocalConstantPointerSuffix`
@@ -902,6 +903,11 @@ After:
     When set to `1` functions that have a similar signature to ``main`` or 
     ``wmain`` won't enforce checks on the names of their parameters.
     Default value is `0`.
+
+.. option:: IgnoreShortNames
+
+    Checks won't be enforced for identifier names with a length less than or
+    equal to this setting. Default value is `0`.
 
 .. option:: InlineNamespaceCase
 

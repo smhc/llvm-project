@@ -83,6 +83,7 @@ private:
   const bool GetConfigPerFile;
   const bool IgnoreFailedSplit;
   const bool IgnoreMainLikeFunctions;
+  const size_t IgnoreShortNames;
 };
 
 } // namespace readability
