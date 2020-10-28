@@ -100,6 +100,7 @@ private:
   const std::string CheckName;
   const bool GetConfigPerFile;
   const bool IgnoreFailedSplit;
+  const size_t IgnoreShortNames;
 };
 
 } // namespace readability
