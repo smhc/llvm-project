@@ -58,7 +58,7 @@ The following options are describe below:
  - :option:`GlobalPointerCase`, :option:`GlobalPointerPrefix`, :option:`GlobalPointerSuffix`
  - :option:`GlobalVariableCase`, :option:`GlobalVariablePrefix`, :option:`GlobalVariableSuffix`
  - :option:`IgnoreMainLikeFunctions`
- - :option:`IgnoreShortNames`
+ - :option:`ShortNameThreshold`
  - :option:`InlineNamespaceCase`, :option:`InlineNamespacePrefix`, :option:`InlineNamespaceSuffix`
  - :option:`LocalConstantCase`, :option:`LocalConstantPrefix`, :option:`LocalConstantSuffix`
  - :option:`LocalConstantPointerCase`, :option:`LocalConstantPointerPrefix`, :option:`LocalConstantPointerSuffix`
@@ -904,7 +904,7 @@ After:
     ``wmain`` won't enforce checks on the names of their parameters.
     Default value is `0`.
 
-.. option:: IgnoreShortNames
+.. option:: ShortNameThreshold
 
     Checks won't be enforced for identifier names with a length less than or
     equal to this setting. Default value is `0`.
