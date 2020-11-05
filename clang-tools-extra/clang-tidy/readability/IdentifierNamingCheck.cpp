@@ -154,7 +154,7 @@ IdentifierNamingCheck::IdentifierNamingCheck(StringRef Name,
     : RenamerClangTidyCheck(Name, Context), Context(Context), CheckName(Name),
       GetConfigPerFile(Options.get("GetConfigPerFile", true)),
       IgnoreFailedSplit(Options.get("IgnoreFailedSplit", false)),
-      ShortNameThreshold(Options.get("ShortNameThreshold", 0)) {
+      ShortNameThreshold(Options.get("ShortNameThreshold", 0U)) {
 
   auto IterAndInserted = NamingStylesCache.try_emplace(
       llvm::sys::path::parent_path(Context->getCurrentFile()),
