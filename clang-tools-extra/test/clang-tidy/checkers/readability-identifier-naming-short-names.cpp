@@ -2,7 +2,7 @@
 // RUN:   -config='{CheckOptions: [ \
 // RUN:     {key: readability-identifier-naming.ParameterCase, value: CamelCase}, \
 // RUN:     {key: readability-identifier-naming.ClassCase, value: CamelCase}, \
-// RUN:     {key: readability-identifier-naming.IgnoreShortNames, value: 2} \
+// RUN:     {key: readability-identifier-naming.ShortNameThreshold, value: 2} \
 // RUN:  ]}'
 
 int testFunc(int a, char **b);
