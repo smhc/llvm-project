@@ -7,14 +7,16 @@
 
 int testFunc(int a, char **b);
 int testFunc(int ab, char **ba);
+int testFunc(int abc, char **cba);
 // CHECK-MESSAGES: :[[@LINE-1]]:18: warning: invalid case style for parameter 'abc'
 // CHECK-MESSAGES: :[[@LINE-2]]:30: warning: invalid case style for parameter 'cba'
-int testFunc(int abc, char **cba);
+// CHECK-FIXES: {{^}}int testFunc(int Abc, char **Cba);{{$}}
 int testFunc(int Abc, char **Cba);
 
 class fo {
 };
 
-// CHECK-MESSAGES: :[[@LINE-1]]:7: warning: invalid case style for class 'foo'
 class foo {
+// CHECK-MESSAGES: :[[@LINE-1]]:7: warning: invalid case style for class 'foo'
+// CHECK-FIXES: {{^}}class Foo {{{$}}
 };
