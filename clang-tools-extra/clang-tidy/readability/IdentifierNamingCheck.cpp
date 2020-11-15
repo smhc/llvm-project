@@ -130,6 +130,9 @@ getFileStyleFromOptions(const ClangTidyCheck::OptionsView &Options) {
   for (unsigned I = 0; I < SK_Count; ++I) {
     StyleString = StyleNames[I];
     size_t StyleSize = StyleString.size();
+    StyleString.append("ShortSizeThreshold");
+    size_t ShortSizeThreshold = Options.get((StyleString).str(), 0U);
+    StyleString.resize(StyleSize);
     StyleString.append("Prefix");
     std::string Prefix(Options.get(StyleString, ""));
     // Fast replacement of [Pre]fix -> [Suf]fix.
@@ -141,9 +144,9 @@ getFileStyleFromOptions(const ClangTidyCheck::OptionsView &Options) {
     auto CaseOptional =
         Options.getOptional<IdentifierNamingCheck::CaseType>(StyleString);
 
-    if (CaseOptional || !Prefix.empty() || !Postfix.empty())
+    if (CaseOptional || !Prefix.empty() || !Postfix.empty() || ShortSizeThreshold > 0)
       Styles[I].emplace(std::move(CaseOptional), std::move(Prefix),
-                        std::move(Postfix));
+                        std::move(Postfix), ShortSizeThreshold);
   }
   bool IgnoreMainLike = Options.get("IgnoreMainLikeFunctions", false);
   return {std::move(Styles), IgnoreMainLike};
@@ -153,8 +156,7 @@ IdentifierNamingCheck::IdentifierNamingCheck(StringRef Name,
                                              ClangTidyContext *Context)
     : RenamerClangTidyCheck(Name, Context), Context(Context), CheckName(Name),
       GetConfigPerFile(Options.get("GetConfigPerFile", true)),
-      IgnoreFailedSplit(Options.get("IgnoreFailedSplit", false)),
-      ShortNameThreshold(Options.get("ShortNameThreshold", 0U)) {
+      IgnoreFailedSplit(Options.get("IgnoreFailedSplit", false)) {
 
   auto IterAndInserted = NamingStylesCache.try_emplace(
       llvm::sys::path::parent_path(Context->getCurrentFile()),
@@ -176,6 +178,9 @@ void IdentifierNamingCheck::storeOptions(ClangTidyOptions::OptionMap &Opts) {
       continue;
     StyleString = StyleNames[I];
     size_t StyleSize = StyleString.size();
+    StyleString.append("ShortSizeThreshold");
+    Options.store(Opts, StyleString, Styles[I]->ShortSizeThreshold);
+    StyleString.resize(StyleSize);
     StyleString.append("Prefix");
     Options.store(Opts, StyleString, Styles[I]->Prefix);
     // Fast replacement of [Pre]fix -> [Suf]fix.
@@ -192,7 +197,6 @@ void IdentifierNamingCheck::storeOptions(ClangTidyOptions::OptionMap &Opts) {
   Options.store(Opts, "IgnoreFailedSplit", IgnoreFailedSplit);
   Options.store(Opts, "IgnoreMainLikeFunctions",
                 MainFileStyle->isIgnoringMainLikeFunction());
-  Options.store(Opts, "ShortNameThreshold", ShortNameThreshold);
 }
 
 static bool matchesStyle(StringRef Name,
@@ -678,15 +682,14 @@ static StyleKind findStyleKind(
 static llvm::Optional<RenamerClangTidyCheck::FailureInfo> getFailureInfo(
     StringRef Name, SourceLocation Location,
     ArrayRef<llvm::Optional<IdentifierNamingCheck::NamingStyle>> NamingStyles,
-    StyleKind SK, const SourceManager &SM, bool IgnoreFailedSplit,
-    size_t ShortNameThreshold) {
+    StyleKind SK, const SourceManager &SM, bool IgnoreFailedSplit) {
   if (SK == SK_Invalid || !NamingStyles[SK])
     return None;
 
-  if (Name.size() <= ShortNameThreshold)
+  const IdentifierNamingCheck::NamingStyle &Style = *NamingStyles[SK];
+  if (Name.size() <= Style.ShortSizeThreshold)
     return None;
 
-  const IdentifierNamingCheck::NamingStyle &Style = *NamingStyles[SK];
   if (matchesStyle(Name, Style))
     return None;
 
@@ -719,7 +722,7 @@ IdentifierNamingCheck::GetDeclFailureInfo(const NamedDecl *Decl,
   return getFailureInfo(Decl->getName(), Loc, FileStyle.getStyles(),
                         findStyleKind(Decl, FileStyle.getStyles(),
                                       FileStyle.isIgnoringMainLikeFunction()),
-                        SM, IgnoreFailedSplit, ShortNameThreshold);
+                        SM, IgnoreFailedSplit);
 }
 
 llvm::Optional<RenamerClangTidyCheck::FailureInfo>
@@ -732,7 +735,7 @@ IdentifierNamingCheck::GetMacroFailureInfo(const Token &MacroNameTok,
 
   return getFailureInfo(MacroNameTok.getIdentifierInfo()->getName(), Loc,
                         Style.getStyles(), SK_MacroDefinition, SM,
-                        IgnoreFailedSplit, ShortNameThreshold);
+                        IgnoreFailedSplit);
 }
 
 RenamerClangTidyCheck::DiagInfo
