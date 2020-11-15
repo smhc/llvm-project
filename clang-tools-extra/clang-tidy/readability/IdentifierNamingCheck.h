@@ -53,7 +53,8 @@ public:
 
     NamingStyle(llvm::Optional<CaseType> Case, const std::string &Prefix,
                 const std::string &Suffix, size_t ShortSizeThreshold)
-        : Case(Case), Prefix(Prefix), Suffix(Suffix), ShortSizeThreshold(ShortSizeThreshold) {}
+        : Case(Case), Prefix(Prefix), Suffix(Suffix),
+          ShortSizeThreshold(ShortSizeThreshold) {}
 
     llvm::Optional<CaseType> Case;
     std::string Prefix;

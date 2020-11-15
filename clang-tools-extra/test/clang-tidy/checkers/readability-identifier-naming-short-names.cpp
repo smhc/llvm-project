@@ -21,6 +21,6 @@ class foo {
 };
 
 class fooo {
-// CHECK-MESSAGES: :[[@LINE-1]]:7: warning: invalid case style for class 'fooo'
-// CHECK-FIXES: {{^}}class Fooo {{{$}}
+  // CHECK-MESSAGES: :[[@LINE-1]]:7: warning: invalid case style for class 'fooo'
+  // CHECK-FIXES: {{^}}class Fooo {{{$}}
 };

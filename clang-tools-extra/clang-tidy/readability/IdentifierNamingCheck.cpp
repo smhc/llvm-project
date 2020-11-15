@@ -131,11 +131,14 @@ getNamingStyles(const ClangTidyCheck::OptionsView &Options) {
         (StyleName + "Case").str());
     auto Prefix = Options.get((StyleName + "Prefix").str(), "");
     auto Postfix = Options.get((StyleName + "Suffix").str(), "");
-    auto ShortSizeThreshold = Options.get((StyleName + "ShortSizeThreshold").str(), 0U);
+    auto ShortSizeThreshold =
+        Options.get((StyleName + "ShortSizeThreshold").str(), 0U);
 
-    if (CaseOptional || !Prefix.empty() || !Postfix.empty() || ShortSizeThreshold > 0U)
+    if (CaseOptional || !Prefix.empty() || !Postfix.empty() ||
+        ShortSizeThreshold > 0U)
       Styles.emplace_back(IdentifierNamingCheck::NamingStyle{
-          std::move(CaseOptional), std::move(Prefix), std::move(Postfix), ShortSizeThreshold});
+          std::move(CaseOptional), std::move(Prefix), std::move(Postfix),
+          ShortSizeThreshold});
     else
       Styles.emplace_back(llvm::None);
   }
