@@ -52,12 +52,13 @@ public:
     NamingStyle() = default;
 
     NamingStyle(llvm::Optional<CaseType> Case, const std::string &Prefix,
-                const std::string &Suffix)
-        : Case(Case), Prefix(Prefix), Suffix(Suffix) {}
+                const std::string &Suffix, size_t ShortSizeThreshold)
+        : Case(Case), Prefix(Prefix), Suffix(Suffix), ShortSizeThreshold(ShortSizeThreshold) {}
 
     llvm::Optional<CaseType> Case;
     std::string Prefix;
     std::string Suffix;
+    size_t ShortSizeThreshold;
   };
 
 private:
@@ -83,7 +84,6 @@ private:
   const bool GetConfigPerFile;
   const bool IgnoreFailedSplit;
   const bool IgnoreMainLikeFunctions;
-  const size_t ShortNameThreshold;
 };
 
 } // namespace readability
