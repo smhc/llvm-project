@@ -144,7 +144,8 @@ getFileStyleFromOptions(const ClangTidyCheck::OptionsView &Options) {
     auto CaseOptional =
         Options.getOptional<IdentifierNamingCheck::CaseType>(StyleString);
 
-    if (CaseOptional || !Prefix.empty() || !Postfix.empty() || ShortSizeThreshold > 0)
+    if (CaseOptional || !Prefix.empty() || !Postfix.empty() ||
+        ShortSizeThreshold > 0)
       Styles[I].emplace(std::move(CaseOptional), std::move(Prefix),
                         std::move(Postfix), ShortSizeThreshold);
   }
