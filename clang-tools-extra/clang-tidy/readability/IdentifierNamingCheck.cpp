@@ -131,17 +131,20 @@ getFileStyleFromOptions(const ClangTidyCheck::OptionsView &Options) {
     StyleString = StyleNames[I];
     size_t StyleSize = StyleString.size();
     StyleString.append("Prefix");
-    std::string Prefix(Options.get(StyleString, ""));
+    bool PrefixPresent;
+    std::string Prefix(Options.get(StyleString, "", PrefixPresent));
+  
     // Fast replacement of [Pre]fix -> [Suf]fix.
     memcpy(&StyleString[StyleSize], "Suf", 3);
-    std::string Postfix(Options.get(StyleString, ""));
+    bool SuffixPresent;
+    std::string Postfix(Options.get(StyleString, "", SuffixPresent));
     memcpy(&StyleString[StyleSize], "Case", 4);
     StyleString.pop_back();
     StyleString.pop_back();
     auto CaseOptional =
         Options.getOptional<IdentifierNamingCheck::CaseType>(StyleString);
 
-    if (CaseOptional || !Prefix.empty() || !Postfix.empty())
+    if (CaseOptional || PrefixPresent || SuffixPresent)
       Styles[I].emplace(std::move(CaseOptional), std::move(Prefix),
                         std::move(Postfix));
   }

@@ -216,6 +216,22 @@ public:
 
     /// Read a named option from the ``Context``.
     ///
+    /// Reads the option with the check-local name \p LocalName from the
+    /// ``CheckOptions``. If the corresponding key is not present, returns
+    /// \p Default. \p Present is set dependent on whether the option was
+    /// present or not.
+    std::string get(StringRef LocalName, StringRef Default, bool& Present) const {
+      if (llvm::Expected<std::string> Val = get(LocalName)) {
+        Present = true;
+        return *Val;
+      } else
+        llvm::consumeError(Val.takeError());
+      Present = false;
+      return Default.str();
+    }
+
+    /// Read a named option from the ``Context``.
+    ///
     /// Reads the option with the check-local name \p LocalName from local or
     /// global ``CheckOptions``. Gets local option first. If local is not
     /// present, falls back to get global option. If global option is not
