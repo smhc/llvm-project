@@ -36,60 +36,60 @@ Options
 
 The following options are describe below:
 
- - :option:`AbstractClassCase`, :option:`AbstractClassPrefix`, :option:`AbstractClassSuffix`, :option:`AbstractClassShortSizeThreshold`
+ - :option:`AbstractClassCase`, :option:`AbstractClassPrefix`, :option:`AbstractClassSuffix`, :option:`AbstractClassIgnoredRegexp`
  - :option:`AggressiveDependentMemberLookup`
- - :option:`ClassCase`, :option:`ClassPrefix`, :option:`ClassSuffix`, :option:`ClassShortSizeThreshold`
- - :option:`ClassConstantCase`, :option:`ClassConstantPrefix`, :option:`ClassConstantSuffix`, :option:`ClassConstantShortSizeThreshold`
- - :option:`ClassMemberCase`, :option:`ClassMemberPrefix`, :option:`ClassMemberSuffix`, :option:`ClassMemberShortSizeThreshold`
- - :option:`ClassMethodCase`, :option:`ClassMethodPrefix`, :option:`ClassMethodSuffix`, :option:`ClassMethodShortSizeThreshold`
- - :option:`ConstantCase`, :option:`ConstantPrefix`, :option:`ConstantSuffix`, :option:`ConstantShortSizeThreshold`
- - :option:`ConstantMemberCase`, :option:`ConstantMemberPrefix`, :option:`ConstantMemberSuffix`, :option:`ConstantMemberShortSizeThreshold`
- - :option:`ConstantParameterCase`, :option:`ConstantParameterPrefix`, :option:`ConstantParameterSuffix`, :option:`ConstantParameterShortSizeThreshold`
- - :option:`ConstantPointerParameterCase`, :option:`ConstantPointerParameterPrefix`, :option:`ConstantPointerParameterSuffix`, :option:`ConstantPointerParameterShortSizeThreshold`
- - :option:`ConstexprFunctionCase`, :option:`ConstexprFunctionPrefix`, :option:`ConstexprFunctionSuffix`, :option:`ConstexprFunctionShortSizeThreshold`
- - :option:`ConstexprMethodCase`, :option:`ConstexprMethodPrefix`, :option:`ConstexprMethodSuffix`, :option:`ConstexprMethodShortSizeThreshold`
- - :option:`ConstexprVariableCase`, :option:`ConstexprVariablePrefix`, :option:`ConstexprVariableSuffix`, :option:`ConstexprVariableShortSizeThreshold`
- - :option:`EnumCase`, :option:`EnumPrefix`, :option:`EnumSuffix`, :option:`EnumShortSizeThreshold`
- - :option:`EnumConstantCase`, :option:`EnumConstantPrefix`, :option:`EnumConstantSuffix`, :option:`EnumConstantShortSizeThreshold`
- - :option:`FunctionCase`, :option:`FunctionPrefix`, :option:`FunctionSuffix`, :option:`FunctionShortSizeThreshold`
+ - :option:`ClassCase`, :option:`ClassPrefix`, :option:`ClassSuffix`, :option:`ClassIgnoredRegexp`
+ - :option:`ClassConstantCase`, :option:`ClassConstantPrefix`, :option:`ClassConstantSuffix`, :option:`ClassConstantIgnoredRegexp`
+ - :option:`ClassMemberCase`, :option:`ClassMemberPrefix`, :option:`ClassMemberSuffix`, :option:`ClassMemberIgnoredRegexp`
+ - :option:`ClassMethodCase`, :option:`ClassMethodPrefix`, :option:`ClassMethodSuffix`, :option:`ClassMethodIgnoredRegexp`
+ - :option:`ConstantCase`, :option:`ConstantPrefix`, :option:`ConstantSuffix`, :option:`ConstantIgnoredRegexp`
+ - :option:`ConstantMemberCase`, :option:`ConstantMemberPrefix`, :option:`ConstantMemberSuffix`, :option:`ConstantMemberIgnoredRegexp`
+ - :option:`ConstantParameterCase`, :option:`ConstantParameterPrefix`, :option:`ConstantParameterSuffix`, :option:`ConstantParameterIgnoredRegexp`
+ - :option:`ConstantPointerParameterCase`, :option:`ConstantPointerParameterPrefix`, :option:`ConstantPointerParameterSuffix`, :option:`ConstantPointerParameterIgnoredRegexp`
+ - :option:`ConstexprFunctionCase`, :option:`ConstexprFunctionPrefix`, :option:`ConstexprFunctionSuffix`, :option:`ConstexprFunctionIgnoredRegexp`
+ - :option:`ConstexprMethodCase`, :option:`ConstexprMethodPrefix`, :option:`ConstexprMethodSuffix`, :option:`ConstexprMethodIgnoredRegexp`
+ - :option:`ConstexprVariableCase`, :option:`ConstexprVariablePrefix`, :option:`ConstexprVariableSuffix`, :option:`ConstexprVariableIgnoredRegexp`
+ - :option:`EnumCase`, :option:`EnumPrefix`, :option:`EnumSuffix`, :option:`EnumIgnoredRegexp`
+ - :option:`EnumConstantCase`, :option:`EnumConstantPrefix`, :option:`EnumConstantSuffix`, :option:`EnumConstantIgnoredRegexp`
+ - :option:`FunctionCase`, :option:`FunctionPrefix`, :option:`FunctionSuffix`, :option:`FunctionIgnoredRegexp`
  - :option:`GetConfigPerFile`
- - :option:`GlobalConstantCase`, :option:`GlobalConstantPrefix`, :option:`GlobalConstantSuffix`, :option:`GlobalConstantShortSizeThreshold`
- - :option:`GlobalConstantPointerCase`, :option:`GlobalConstantPointerPrefix`, :option:`GlobalConstantPointerSuffix`, :option:`GlobalConstantPointerShortSizeThreshold`
- - :option:`GlobalFunctionCase`, :option:`GlobalFunctionPrefix`, :option:`GlobalFunctionSuffix`, :option:`GlobalFunctionShortSizeThreshold`
- - :option:`GlobalPointerCase`, :option:`GlobalPointerPrefix`, :option:`GlobalPointerSuffix`, :option:`GlobalPointerShortSizeThreshold`
- - :option:`GlobalVariableCase`, :option:`GlobalVariablePrefix`, :option:`GlobalVariableSuffix`, :option:`GlobalVariableShortSizeThreshold`
+ - :option:`GlobalConstantCase`, :option:`GlobalConstantPrefix`, :option:`GlobalConstantSuffix`, :option:`GlobalConstantIgnoredRegexp`
+ - :option:`GlobalConstantPointerCase`, :option:`GlobalConstantPointerPrefix`, :option:`GlobalConstantPointerSuffix`, :option:`GlobalConstantPointerIgnoredRegexp`
+ - :option:`GlobalFunctionCase`, :option:`GlobalFunctionPrefix`, :option:`GlobalFunctionSuffix`, :option:`GlobalFunctionIgnoredRegexp`
+ - :option:`GlobalPointerCase`, :option:`GlobalPointerPrefix`, :option:`GlobalPointerSuffix`, :option:`GlobalPointerIgnoredRegexp`
+ - :option:`GlobalVariableCase`, :option:`GlobalVariablePrefix`, :option:`GlobalVariableSuffix`, :option:`GlobalVariableIgnoredRegexp`
  - :option:`IgnoreMainLikeFunctions`
- - :option:`InlineNamespaceCase`, :option:`InlineNamespacePrefix`, :option:`InlineNamespaceSuffix`, :option:`InlineNamespaceShortSizeThreshold`
- - :option:`LocalConstantCase`, :option:`LocalConstantPrefix`, :option:`LocalConstantSuffix`, :option:`LocalConstantShortSizeThreshold`
- - :option:`LocalConstantPointerCase`, :option:`LocalConstantPointerPrefix`, :option:`LocalConstantPointerSuffix`, :option:`LocalConstantPointerShortSizeThreshold`
- - :option:`LocalPointerCase`, :option:`LocalPointerPrefix`, :option:`LocalPointerSuffix`, :option:`LocalPointerShortSizeThreshold`
- - :option:`LocalVariableCase`, :option:`LocalVariablePrefix`, :option:`LocalVariableSuffix`, :option:`LocalVariableShortSizeThreshold`
- - :option:`MacroDefinitionCase`, :option:`MacroDefinitionPrefix`, :option:`MacroDefinitionSuffix`, :option:`MacroDefinitionShortSizeThreshold`
- - :option:`MemberCase`, :option:`MemberPrefix`, :option:`MemberSuffix`, :option:`MemberShortSizeThreshold`
- - :option:`MethodCase`, :option:`MethodPrefix`, :option:`MethodSuffix`, :option:`MethodShortSizeThreshold`
- - :option:`NamespaceCase`, :option:`NamespacePrefix`, :option:`NamespaceSuffix`, :option:`NamespaceShortSizeThreshold`
- - :option:`ParameterCase`, :option:`ParameterPrefix`, :option:`ParameterSuffix`, :option:`ParameterShortSizeThreshold`
- - :option:`ParameterPackCase`, :option:`ParameterPackPrefix`, :option:`ParameterPackSuffix`, :option:`ParameterPackShortSizeThreshold`
- - :option:`PointerParameterCase`, :option:`PointerParameterPrefix`, :option:`PointerParameterSuffix`, :option:`PointerParameterShortSizeThreshold`
- - :option:`PrivateMemberCase`, :option:`PrivateMemberPrefix`, :option:`PrivateMemberSuffix`, :option:`PrivateMemberShortSizeThreshold`
- - :option:`PrivateMethodCase`, :option:`PrivateMethodPrefix`, :option:`PrivateMethodSuffix`, :option:`PrivateMethodShortSizeThreshold`
- - :option:`ProtectedMemberCase`, :option:`ProtectedMemberPrefix`, :option:`ProtectedMemberSuffix`, :option:`ProtectedMemberShortSizeThreshold`
- - :option:`ProtectedMethodCase`, :option:`ProtectedMethodPrefix`, :option:`ProtectedMethodSuffix`, :option:`ProtectedMethodShortSizeThreshold`
- - :option:`PublicMemberCase`, :option:`PublicMemberPrefix`, :option:`PublicMemberSuffix`, :option:`PublicMemberShortSizeThreshold`
- - :option:`PublicMethodCase`, :option:`PublicMethodPrefix`, :option:`PublicMethodSuffix`, :option:`PublicMethodShortSizeThreshold`
- - :option:`ScopedEnumConstantCase`, :option:`ScopedEnumConstantPrefix`, :option:`ScopedEnumConstantSuffix`, :option:`ScopedEnumConstantShortSizeThreshold`
- - :option:`StaticConstantCase`, :option:`StaticConstantPrefix`, :option:`StaticConstantSuffix`, :option:`StaticConstantShortSizeThreshold`
- - :option:`StaticVariableCase`, :option:`StaticVariablePrefix`, :option:`StaticVariableSuffix`, :option:`StaticVariableShortSizeThreshold`
- - :option:`StructCase`, :option:`StructPrefix`, :option:`StructSuffix`, :option:`StructShortSizeThreshold`
- - :option:`TemplateParameterCase`, :option:`TemplateParameterPrefix`, :option:`TemplateParameterSuffix`, :option:`TemplateParameterShortSizeThreshold`
- - :option:`TemplateTemplateParameterCase`, :option:`TemplateTemplateParameterPrefix`, :option:`TemplateTemplateParameterSuffix`, :option:`TemplateTemplateParameterShortSizeThreshold`
- - :option:`TypeAliasCase`, :option:`TypeAliasPrefix`, :option:`TypeAliasSuffix`, :option:`TypeAliasShortSizeThreshold`
- - :option:`TypedefCase`, :option:`TypedefPrefix`, :option:`TypedefSuffix`, :option:`TypedefShortSizeThreshold`
- - :option:`TypeTemplateParameterCase`, :option:`TypeTemplateParameterPrefix`, :option:`TypeTemplateParameterSuffix`, :option:`TypeTemplateParameterShortSizeThreshold`
- - :option:`UnionCase`, :option:`UnionPrefix`, :option:`UnionSuffix`, :option:`UnionShortSizeThreshold`
- - :option:`ValueTemplateParameterCase`, :option:`ValueTemplateParameterPrefix`, :option:`ValueTemplateParameterSuffix`, :option:`ValueTemplateParameterShortSizeThreshold`
- - :option:`VariableCase`, :option:`VariablePrefix`, :option:`VariableSuffix`, :option:`VariableShortSizeThreshold`
- - :option:`VirtualMethodCase`, :option:`VirtualMethodPrefix`, :option:`VirtualMethodSuffix`, :option:`VirtualMethodShortSizeThreshold`
+ - :option:`InlineNamespaceCase`, :option:`InlineNamespacePrefix`, :option:`InlineNamespaceSuffix`, :option:`InlineNamespaceIgnoredRegexp`
+ - :option:`LocalConstantCase`, :option:`LocalConstantPrefix`, :option:`LocalConstantSuffix`, :option:`LocalConstantIgnoredRegexp`
+ - :option:`LocalConstantPointerCase`, :option:`LocalConstantPointerPrefix`, :option:`LocalConstantPointerSuffix`, :option:`LocalConstantPointerIgnoredRegexp`
+ - :option:`LocalPointerCase`, :option:`LocalPointerPrefix`, :option:`LocalPointerSuffix`, :option:`LocalPointerIgnoredRegexp`
+ - :option:`LocalVariableCase`, :option:`LocalVariablePrefix`, :option:`LocalVariableSuffix`, :option:`LocalVariableIgnoredRegexp`
+ - :option:`MacroDefinitionCase`, :option:`MacroDefinitionPrefix`, :option:`MacroDefinitionSuffix`, :option:`MacroDefinitionIgnoredRegexp`
+ - :option:`MemberCase`, :option:`MemberPrefix`, :option:`MemberSuffix`, :option:`MemberIgnoredRegexp`
+ - :option:`MethodCase`, :option:`MethodPrefix`, :option:`MethodSuffix`, :option:`MethodIgnoredRegexp`
+ - :option:`NamespaceCase`, :option:`NamespacePrefix`, :option:`NamespaceSuffix`, :option:`NamespaceIgnoredRegexp`
+ - :option:`ParameterCase`, :option:`ParameterPrefix`, :option:`ParameterSuffix`, :option:`ParameterIgnoredRegexp`
+ - :option:`ParameterPackCase`, :option:`ParameterPackPrefix`, :option:`ParameterPackSuffix`, :option:`ParameterPackIgnoredRegexp`
+ - :option:`PointerParameterCase`, :option:`PointerParameterPrefix`, :option:`PointerParameterSuffix`, :option:`PointerParameterIgnoredRegexp`
+ - :option:`PrivateMemberCase`, :option:`PrivateMemberPrefix`, :option:`PrivateMemberSuffix`, :option:`PrivateMemberIgnoredRegexp`
+ - :option:`PrivateMethodCase`, :option:`PrivateMethodPrefix`, :option:`PrivateMethodSuffix`, :option:`PrivateMethodIgnoredRegexp`
+ - :option:`ProtectedMemberCase`, :option:`ProtectedMemberPrefix`, :option:`ProtectedMemberSuffix`, :option:`ProtectedMemberIgnoredRegexp`
+ - :option:`ProtectedMethodCase`, :option:`ProtectedMethodPrefix`, :option:`ProtectedMethodSuffix`, :option:`ProtectedMethodIgnoredRegexp`
+ - :option:`PublicMemberCase`, :option:`PublicMemberPrefix`, :option:`PublicMemberSuffix`, :option:`PublicMemberIgnoredRegexp`
+ - :option:`PublicMethodCase`, :option:`PublicMethodPrefix`, :option:`PublicMethodSuffix`, :option:`PublicMethodIgnoredRegexp`
+ - :option:`ScopedEnumConstantCase`, :option:`ScopedEnumConstantPrefix`, :option:`ScopedEnumConstantSuffix`, :option:`ScopedEnumConstantIgnoredRegexp`
+ - :option:`StaticConstantCase`, :option:`StaticConstantPrefix`, :option:`StaticConstantSuffix`, :option:`StaticConstantIgnoredRegexp`
+ - :option:`StaticVariableCase`, :option:`StaticVariablePrefix`, :option:`StaticVariableSuffix`, :option:`StaticVariableIgnoredRegexp`
+ - :option:`StructCase`, :option:`StructPrefix`, :option:`StructSuffix`, :option:`StructIgnoredRegexp`
+ - :option:`TemplateParameterCase`, :option:`TemplateParameterPrefix`, :option:`TemplateParameterSuffix`, :option:`TemplateParameterIgnoredRegexp`
+ - :option:`TemplateTemplateParameterCase`, :option:`TemplateTemplateParameterPrefix`, :option:`TemplateTemplateParameterSuffix`, :option:`TemplateTemplateParameterIgnoredRegexp`
+ - :option:`TypeAliasCase`, :option:`TypeAliasPrefix`, :option:`TypeAliasSuffix`, :option:`TypeAliasIgnoredRegexp`
+ - :option:`TypedefCase`, :option:`TypedefPrefix`, :option:`TypedefSuffix`, :option:`TypedefIgnoredRegexp`
+ - :option:`TypeTemplateParameterCase`, :option:`TypeTemplateParameterPrefix`, :option:`TypeTemplateParameterSuffix`, :option:`TypeTemplateParameterIgnoredRegexp`
+ - :option:`UnionCase`, :option:`UnionPrefix`, :option:`UnionSuffix`, :option:`UnionIgnoredRegexp`
+ - :option:`ValueTemplateParameterCase`, :option:`ValueTemplateParameterPrefix`, :option:`ValueTemplateParameterSuffix`, :option:`ValueTemplateParameterIgnoredRegexp`
+ - :option:`VariableCase`, :option:`VariablePrefix`, :option:`VariableSuffix`, :option:`VariableIgnoredRegexp`
+ - :option:`VirtualMethodCase`, :option:`VirtualMethodPrefix`, :option:`VirtualMethodSuffix`, :option:`VirtualMethodIgnoredRegexp`
 
 .. option:: AbstractClassCase
 
@@ -101,10 +101,10 @@ The following options are describe below:
     When defined, the check will ensure abstract class names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: AbstractClassShortSizeThreshold
+.. option:: AbstractClassIgnoredRegexp
 
-    Identifier naming checks won't be enforced for abstract class names having
-    a length less than or equal to this setting.
+    Identifier naming checks won't be enforced for abstract class names
+    matching this regular expression.
 
 .. option:: AbstractClassSuffix
 
@@ -205,10 +205,10 @@ After if AggressiveDependentMemberLookup is ``1``:
     When defined, the check will ensure class names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: ClassShortSizeThreshold
+.. option:: ClassIgnoredRegexp
 
-    Identifier naming checks won't be enforced for class names having a length
-    less than or equal to this setting.
+    Identifier naming checks won't be enforced for class names matching
+    this regular expression.
 
 .. option:: ClassSuffix
 
@@ -253,10 +253,10 @@ After:
     When defined, the check will ensure class constant names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: ClassConstantShortSizeThreshold
+.. option:: ClassConstantIgnoredRegexp
 
-    Identifier naming checks won't be enforced for class constant names having
-    a length less than or equal to this setting.
+    Identifier naming checks won't be enforced for class constant names
+    matching this regular expression.
 
 .. option:: ClassConstantSuffix
 
@@ -299,10 +299,10 @@ After:
     When defined, the check will ensure class member names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: ClassMemberShortSizeThreshold
+.. option:: ClassMemberIgnoredRegexp
 
-    Identifier naming checks won't be enforced for class member names having a
-    length less than or equal to this setting.
+    Identifier naming checks won't be enforced for class member names
+    matching this regular expression.
 
 .. option:: ClassMemberSuffix
 
@@ -345,10 +345,10 @@ After:
     When defined, the check will ensure class method names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: ClassMethodShortSizeThreshold
+.. option:: ClassMethodIgnoredRegexp
 
-    Identifier naming checks won't be enforced for class method names having a
-    length less than or equal to this setting.
+    Identifier naming checks won't be enforced for class method names
+    matching this regular expression.
 
 .. option:: ClassMethodSuffix
 
@@ -391,10 +391,10 @@ After:
     When defined, the check will ensure constant names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: ConstantShortSizeThreshold
+.. option:: ConstantIgnoredRegexp
 
-    Identifier naming checks won't be enforced for constant names having a
-    length less than or equal to this setting.
+    Identifier naming checks won't be enforced for constant names
+    matching this regular expression.
 
 .. option:: ConstantSuffix
 
@@ -431,10 +431,10 @@ After:
     When defined, the check will ensure constant member names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: ConstantMemberShortSizeThreshold
+.. option:: ConstantMemberIgnoredRegexp
 
-    Identifier naming checks won't be enforced for constant member names having
-    a length less than or equal to this setting.
+    Identifier naming checks won't be enforced for constant member names
+    matching this regular expression.
 
 .. option:: ConstantMemberSuffix
 
@@ -475,10 +475,10 @@ After:
     When defined, the check will ensure constant parameter names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: ConstantParameterShortSizeThreshold
+.. option:: ConstantParameterIgnoredRegexp
 
     Identifier naming checks won't be enforced for constant parameter names
-    having a length less than or equal to this setting.
+    matching this regular expression.
 
 .. option:: ConstantParameterSuffix
 
@@ -515,10 +515,10 @@ After:
     When defined, the check will ensure constant pointer parameter names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: ConstantPointerParameterShortSizeThreshold
+.. option:: ConstantPointerParameterIgnoredRegexp
 
     Identifier naming checks won't be enforced for constant pointer parameter
-    names having a length less than or equal to this setting.
+    names matching this regular expression.
 
 .. option:: ConstantPointerParameterSuffix
 
@@ -555,10 +555,10 @@ After:
     When defined, the check will ensure constexpr function names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: ConstexprFunctionShortSizeThreshold
+.. option:: ConstexprFunctionIgnoredRegexp
 
     Identifier naming checks won't be enforced for constexpr function names
-    having a length less than or equal to this setting.
+    matching this regular expression.
 
 .. option:: ConstexprFunctionSuffix
 
@@ -595,10 +595,10 @@ After:
     When defined, the check will ensure constexpr method names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: ConstexprMethodShortSizeThreshold
+.. option:: ConstexprMethodIgnoredRegexp
 
     Identifier naming checks won't be enforced for constexpr method names
-    having a length less than or equal to this setting.
+    matching this regular expression.
 
 .. option:: ConstexprMethodSuffix
 
@@ -641,10 +641,10 @@ After:
     When defined, the check will ensure constexpr variable names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: ConstexprVariableShortSizeThreshold
+.. option:: ConstexprVariableIgnoredRegexp
 
     Identifier naming checks won't be enforced for constexpr variable names
-    having a length less than or equal to this setting.
+    matching this regular expression.
 
 .. option:: ConstexprVariableSuffix
 
@@ -681,10 +681,10 @@ After:
     When defined, the check will ensure enumeration names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: EnumConstantShortSizeThreshold
+.. option:: EnumConstantIgnoredRegexp
 
-    Identifier naming checks won't be enforced for enumeration names having a
-    length less than or equal to this setting.
+    Identifier naming checks won't be enforced for enumeration names
+    matching this regular expression.
 
 .. option:: EnumSuffix
 
@@ -721,10 +721,10 @@ After:
     When defined, the check will ensure enumeration constant names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: EnumConstantShortSizeThreshold
+.. option:: EnumConstantIgnoredRegexp
 
     Identifier naming checks won't be enforced for enumeration constant names
-    having a length less than or equal to this setting.
+    matching this regular expression.
 
 .. option:: EnumConstantSuffix
 
@@ -761,10 +761,10 @@ After:
     When defined, the check will ensure function names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: FunctionShortSizeThreshold
+.. option:: FunctionIgnoredRegexp
 
-    Identifier naming checks won't be enforced for function names having a
-    length less than or equal to this setting.
+    Identifier naming checks won't be enforced for function names
+    matching this regular expression.
 
 .. option:: FunctionSuffix
 
@@ -808,10 +808,10 @@ After:
     When defined, the check will ensure global constant names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: GlobalConstantShortSizeThreshold
+.. option:: GlobalConstantIgnoredRegexp
 
-    Identifier naming checks won't be enforced for global constant names having
-    a length less than or equal to this setting.
+    Identifier naming checks won't be enforced for global constant names
+    matching this regular expression.
 
 .. option:: GlobalConstantSuffix
 
@@ -848,10 +848,10 @@ After:
     When defined, the check will ensure global constant pointer names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: GlobalConstantPointerShortSizeThreshold
+.. option:: GlobalConstantPointerIgnoredRegexp
 
     Identifier naming checks won't be enforced for global constant pointer
-    names having a length less than or equal to this setting.
+    names matching this regular expression.
 
 .. option:: GlobalConstantPointerSuffix
 
@@ -888,10 +888,10 @@ After:
     When defined, the check will ensure global function names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: GlobalFunctionShortSizeThreshold
+.. option:: GlobalFunctionIgnoredRegexp
 
-    Identifier naming checks won't be enforced for global function names having
-    a length less than or equal to this setting.
+    Identifier naming checks won't be enforced for global function names
+    matching this regular expression.
 
 .. option:: GlobalFunctionSuffix
 
@@ -928,10 +928,10 @@ After:
     When defined, the check will ensure global pointer names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: GlobalPointerShortSizeThreshold
+.. option:: GlobalPointerIgnoredRegexp
 
-    Identifier naming checks won't be enforced for global pointer names having
-    a length less than or equal to this setting.
+    Identifier naming checks won't be enforced for global pointer names
+    matching this regular expression.
 
 .. option:: GlobalPointerSuffix
 
@@ -968,10 +968,10 @@ After:
     When defined, the check will ensure global variable names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: GlobalVariableShortSizeThreshold
+.. option:: GlobalVariableIgnoredRegexp
 
-    Identifier naming checks won't be enforced for global variable names having
-    a length less than or equal to this setting.
+    Identifier naming checks won't be enforced for global variable names
+    matching this regular expression.
 
 .. option:: GlobalVariableSuffix
 
@@ -1014,10 +1014,10 @@ After:
     When defined, the check will ensure inline namespaces names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: InlineNamespaceShortSizeThreshold
+.. option:: InlineNamespaceIgnoredRegexp
 
     Identifier naming checks won't be enforced for inline namespaces names
-    having a length less than or equal to this setting.
+    matching this regular expression.
 
 .. option:: InlineNamespaceSuffix
 
@@ -1062,10 +1062,10 @@ After:
     When defined, the check will ensure local constant names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: LocalConstantShortSizeThreshold
+.. option:: LocalConstantIgnoredRegexp
 
-    Identifier naming checks won't be enforced for local constant names having
-    a length less than or equal to this setting.
+    Identifier naming checks won't be enforced for local constant names
+    matching this regular expression.
 
 .. option:: LocalConstantSuffix
 
@@ -1102,10 +1102,10 @@ After:
     When defined, the check will ensure local constant pointer names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: LocalConstantPointerShortSizeThreshold
+.. option:: LocalConstantPointerIgnoredRegexp
 
     Identifier naming checks won't be enforced for local constant pointer names
-    having a length less than or equal to this setting.
+    matching this regular expression.
 
 .. option:: LocalConstantPointerSuffix
 
@@ -1142,10 +1142,10 @@ After:
     When defined, the check will ensure local pointer names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: LocalPointerShortSizeThreshold
+.. option:: LocalPointerIgnoredRegexp
 
-    Identifier naming checks won't be enforced for local pointer names having a
-    length less than or equal to this setting.
+    Identifier naming checks won't be enforced for local pointer names
+    matching this regular expression.
 
 .. option:: LocalPointerSuffix
 
@@ -1182,10 +1182,10 @@ After:
     When defined, the check will ensure local variable names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: LocalVariableShortSizeThreshold
+.. option:: LocalVariableIgnoredRegexp
 
-    Identifier naming checks won't be enforced for local variable names having
-    a length less than or equal to this setting.
+    Identifier naming checks won't be enforced for local variable names
+    matching this regular expression.
 
 .. option:: LocalVariableSuffix
 
@@ -1222,10 +1222,10 @@ After:
     When defined, the check will ensure macro definitions will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: MacroDefinitionShortSizeThreshold
+.. option:: MacroDefinitionIgnoredRegexp
 
-    Identifier naming checks won't be enforced for macro definitions having a
-    length less than or equal to this setting.
+    Identifier naming checks won't be enforced for macro definitions
+    matching this regular expression.
 
 .. option:: MacroDefinitionSuffix
 
@@ -1265,10 +1265,10 @@ using the ``-D`` flag.
     When defined, the check will ensure member names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: MemberShortSizeThreshold
+.. option:: MemberIgnoredRegexp
 
-    Identifier naming checks won't be enforced for member names having a length
-    less than or equal to this setting.
+    Identifier naming checks won't be enforced for member names
+    matching this regular expression.
 
 .. option:: MemberSuffix
 
@@ -1309,10 +1309,10 @@ After:
     When defined, the check will ensure method names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: MethodShortSizeThreshold
+.. option:: MethodIgnoredRegexp
 
-    Identifier naming checks won't be enforced for method names having a length
-    less than or equal to this setting.
+    Identifier naming checks won't be enforced for method names
+    matching this regular expression.
 
 .. option:: MethodSuffix
 
@@ -1353,10 +1353,10 @@ After:
     When defined, the check will ensure namespace names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: NamespaceShortSizeThreshold
+.. option:: NamespaceIgnoredRegexp
 
-    Identifier naming checks won't be enforced for namespace names having a
-    length less than or equal to this setting.
+    Identifier naming checks won't be enforced for namespace names
+    matching this regular expression.
 
 .. option:: NamespaceSuffix
 
@@ -1397,10 +1397,10 @@ After:
     When defined, the check will ensure parameter names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: ParameterShortSizeThreshold
+.. option:: ParameterIgnoredRegexp
 
-    Identifier naming checks won't be enforced for parameter names having a
-    length less than or equal to this setting.
+    Identifier naming checks won't be enforced for parameter names
+    matching this regular expression.
 
 .. option:: ParameterSuffix
 
@@ -1437,10 +1437,10 @@ After:
     When defined, the check will ensure parameter pack names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: ParameterPackShortSizeThreshold
+.. option:: ParameterPackIgnoredRegexp
 
-    Identifier naming checks won't be enforced for parameter pack names having
-    a length less than or equal to this setting.
+    Identifier naming checks won't be enforced for parameter pack names
+    matching this regular expression.
 
 .. option:: ParameterPackSuffix
 
@@ -1481,10 +1481,10 @@ After:
     When defined, the check will ensure pointer parameter names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: PointerParameterShortSizeThreshold
+.. option:: PointerParameterIgnoredRegexp
 
     Identifier naming checks won't be enforced for pointer parameter names
-    having a length less than or equal to this setting.
+    matching this regular expression.
 
 .. option:: PointerParameterSuffix
 
@@ -1521,10 +1521,10 @@ After:
     When defined, the check will ensure private member names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: PrivateMemberShortSizeThreshold
+.. option:: PrivateMemberIgnoredRegexp
 
-    Identifier naming checks won't be enforced for private member names having
-    a length less than or equal to this setting.
+    Identifier naming checks won't be enforced for private member names
+    matching this regular expression.
 
 .. option:: PrivateMemberSuffix
 
@@ -1567,10 +1567,10 @@ After:
     When defined, the check will ensure private method names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: PrivateMethodShortSizeThreshold
+.. option:: PrivateMethodIgnoredRegexp
 
-    Identifier naming checks won't be enforced for private method names having
-    a length less than or equal to this setting.
+    Identifier naming checks won't be enforced for private method names
+    matching this regular expression.
 
 .. option:: PrivateMethodSuffix
 
@@ -1613,10 +1613,10 @@ After:
     When defined, the check will ensure protected member names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: ProtectedMemberShortSizeThreshold
+.. option:: ProtectedMemberIgnoredRegexp
 
     Identifier naming checks won't be enforced for protected member names
-    having a length less than or equal to this setting.
+    matching this regular expression.
 
 .. option:: ProtectedMemberSuffix
 
@@ -1659,10 +1659,10 @@ After:
     When defined, the check will ensure protected method names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: ProtectedMethodShortSizeThreshold
+.. option:: ProtectedMethodIgnoredRegexp
 
     Identifier naming checks won't be enforced for protected method names
-    having a length less than or equal to this setting.
+    matching this regular expression.
 
 .. option:: ProtectedMethodSuffix
 
@@ -1705,10 +1705,10 @@ After:
     When defined, the check will ensure public member names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: PublicMemberShortSizeThreshold
+.. option:: PublicMemberIgnoredRegexp
 
-    Identifier naming checks won't be enforced for public member names having a
-    length less than or equal to this setting.
+    Identifier naming checks won't be enforced for public member names
+    matching this regular expression.
 
 .. option:: PublicMemberSuffix
 
@@ -1751,10 +1751,10 @@ After:
     When defined, the check will ensure public method names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: PublicMethodShortSizeThreshold
+.. option:: PublicMethodIgnoredRegexp
 
-    Identifier naming checks won't be enforced for public method names having a
-    length less than or equal to this setting.
+    Identifier naming checks won't be enforced for public method names
+    matching this regular expression.
 
 .. option:: PublicMethodSuffix
 
@@ -1797,10 +1797,10 @@ After:
     When defined, the check will ensure scoped enum constant names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: ScopedEnumConstantShortSizeThreshold
+.. option:: ScopedEnumConstantIgnoredRegexp
 
     Identifier naming checks won't be enforced for scoped enum constant names
-    having a length less than or equal to this setting.
+    matching this regular expression.
 
 .. option:: ScopedEnumConstantSuffix
 
@@ -1837,10 +1837,10 @@ After:
     When defined, the check will ensure static constant names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: StaticConstantShortSizeThreshold
+.. option:: StaticConstantIgnoredRegexp
 
-    Identifier naming checks won't be enforced for static constant names having
-    a length less than or equal to this setting.
+    Identifier naming checks won't be enforced for static constant names
+    matching this regular expression.
 
 .. option:: StaticConstantSuffix
 
@@ -1877,10 +1877,10 @@ After:
     When defined, the check will ensure static variable names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: StaticVariableShortSizeThreshold
+.. option:: StaticVariableIgnoredRegexp
 
-    Identifier naming checks won't be enforced for static variable names having
-    a length less than or equal to this setting.
+    Identifier naming checks won't be enforced for static variable names
+    matching this regular expression.
 
 .. option:: StaticVariableSuffix
 
@@ -1917,10 +1917,10 @@ After:
     When defined, the check will ensure struct names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: StructShortSizeThreshold
+.. option:: StructIgnoredRegexp
 
-    Identifier naming checks won't be enforced for struct names having a length
-    less than or equal to this setting.
+    Identifier naming checks won't be enforced for struct names
+    matching this regular expression.
 
 .. option:: StructSuffix
 
@@ -1963,10 +1963,10 @@ After:
     When defined, the check will ensure template parameter names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: TemplateParameterShortSizeThreshold
+.. option:: TemplateParameterIgnoredRegexp
 
     Identifier naming checks won't be enforced for template parameter names
-    having a length less than or equal to this setting.
+    matching this regular expression.
 
 .. option:: TemplateParameterSuffix
 
@@ -2003,10 +2003,10 @@ After:
     When defined, the check will ensure template template parameter names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: TemplateTemplateParameterShortSizeThreshold
+.. option:: TemplateTemplateParameterIgnoredRegexp
 
     Identifier naming checks won't be enforced for template template parameter
-    names having a length less than or equal to this setting.
+    names matching this regular expression.
 
 .. option:: TemplateTemplateParameterSuffix
 
@@ -2045,10 +2045,10 @@ After:
     When defined, the check will ensure type alias names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: TypeAliasShortSizeThreshold
+.. option:: TypeAliasIgnoredRegexp
 
-    Identifier naming checks won't be enforced for type alias names having a
-    length less than or equal to this setting.
+    Identifier naming checks won't be enforced for type alias names
+    matching this regular expression.
 
 .. option:: TypeAliasSuffix
 
@@ -2085,10 +2085,10 @@ After:
     When defined, the check will ensure typedef names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: TypedefShortSizeThreshold
+.. option:: TypedefIgnoredRegexp
 
-    Identifier naming checks won't be enforced for typedef names having a
-    length less than or equal to this setting.
+    Identifier naming checks won't be enforced for typedef names
+    matching this regular expression.
 
 .. option:: TypedefSuffix
 
@@ -2125,10 +2125,10 @@ After:
     When defined, the check will ensure type template parameter names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: TypeTemplateParameterShortSizeThreshold
+.. option:: TypeTemplateParameterIgnoredRegexp
 
-    Identifier naming checks won't be enforced for type template names having a
-    length less than or equal to this setting.
+    Identifier naming checks won't be enforced for type template names
+    matching this regular expression.
 
 .. option:: TypeTemplateParameterSuffix
 
@@ -2167,10 +2167,10 @@ After:
     When defined, the check will ensure union names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: UnionShortSizeThreshold
+.. option:: UnionIgnoredRegexp
 
-    Identifier naming checks won't be enforced for union names having a length
-    less than or equal to this setting.
+    Identifier naming checks won't be enforced for union names
+    matching this regular expression.
 
 .. option:: UnionSuffix
 
@@ -2213,10 +2213,10 @@ After:
     When defined, the check will ensure value template parameter names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: ValueTemplateParameterShortSizeThreshold
+.. option:: ValueTemplateParameterIgnoredRegexp
 
     Identifier naming checks won't be enforced for value template parameter
-    names having a length less than or equal to this setting.
+    names matching this regular expression.
 
 .. option:: ValueTemplateParameterSuffix
 
@@ -2255,10 +2255,10 @@ After:
     When defined, the check will ensure variable names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: VariableShortSizeThreshold
+.. option:: VariableIgnoredRegexp
 
-    Identifier naming checks won't be enforced for variable names having a
-    length less than or equal to this setting.
+    Identifier naming checks won't be enforced for variable names
+    matching this regular expression.
 
 .. option:: VariableSuffix
 
@@ -2295,10 +2295,10 @@ After:
     When defined, the check will ensure virtual method names will add the
     prefixed with the given value (regardless of casing).
 
-.. option:: VirtualMethodShortSizeThreshold
+.. option:: VirtualMethodIgnoredRegexp
 
-    Identifier naming checks won't be enforced for virtual method names having
-    a length less than or equal to this setting.
+    Identifier naming checks won't be enforced for virtual method names
+    matching this regular expression.
 
 .. option:: VirtualMethodSuffix
 

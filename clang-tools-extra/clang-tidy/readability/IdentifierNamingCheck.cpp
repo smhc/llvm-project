@@ -130,8 +130,8 @@ getFileStyleFromOptions(const ClangTidyCheck::OptionsView &Options) {
   for (unsigned I = 0; I < SK_Count; ++I) {
     StyleString = StyleNames[I];
     size_t StyleSize = StyleString.size();
-    StyleString.append("ShortSizeThreshold");
-    size_t ShortSizeThreshold = Options.get((StyleString).str(), 0U);
+    StyleString.append("IgnoredRegexp");
+    std::string IgnoredRegexpStr = Options.get((StyleString).str(), "");
     StyleString.resize(StyleSize);
     StyleString.append("Prefix");
     std::string Prefix(Options.get(StyleString, ""));
@@ -145,9 +145,9 @@ getFileStyleFromOptions(const ClangTidyCheck::OptionsView &Options) {
         Options.getOptional<IdentifierNamingCheck::CaseType>(StyleString);
 
     if (CaseOptional || !Prefix.empty() || !Postfix.empty() ||
-        ShortSizeThreshold > 0)
+        !IgnoredRegexpStr.empty())
       Styles[I].emplace(std::move(CaseOptional), std::move(Prefix),
-                        std::move(Postfix), ShortSizeThreshold);
+                        std::move(Postfix), std::move(IgnoredRegexpStr));
   }
   bool IgnoreMainLike = Options.get("IgnoreMainLikeFunctions", false);
   return {std::move(Styles), IgnoreMainLike};
@@ -179,8 +179,8 @@ void IdentifierNamingCheck::storeOptions(ClangTidyOptions::OptionMap &Opts) {
       continue;
     StyleString = StyleNames[I];
     size_t StyleSize = StyleString.size();
-    StyleString.append("ShortSizeThreshold");
-    Options.store(Opts, StyleString, Styles[I]->ShortSizeThreshold);
+    StyleString.append("IgnoredRegexp");
+    Options.store(Opts, StyleString, Styles[I]->IgnoredRegexpStr);
     StyleString.resize(StyleSize);
     StyleString.append("Prefix");
     Options.store(Opts, StyleString, Styles[I]->Prefix);
@@ -201,7 +201,7 @@ void IdentifierNamingCheck::storeOptions(ClangTidyOptions::OptionMap &Opts) {
 }
 
 static bool matchesStyle(StringRef Name,
-                         IdentifierNamingCheck::NamingStyle Style) {
+                         const IdentifierNamingCheck::NamingStyle &Style) {
   static llvm::Regex Matchers[] = {
       llvm::Regex("^.*$"),
       llvm::Regex("^[a-z][a-z0-9_]*$"),
@@ -688,7 +688,7 @@ static llvm::Optional<RenamerClangTidyCheck::FailureInfo> getFailureInfo(
     return None;
 
   const IdentifierNamingCheck::NamingStyle &Style = *NamingStyles[SK];
-  if (Name.size() <= Style.ShortSizeThreshold)
+  if (Style.IgnoredRegexp.isValid() && Style.IgnoredRegexp.match(Name))
     return None;
 
   if (matchesStyle(Name, Style))
