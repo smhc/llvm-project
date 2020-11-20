@@ -20,8 +20,7 @@ Casing types include:
  - ``aNy_CasE``.
 
 It also supports a fixed prefix and suffix that will be prepended or appended
-to the identifiers, regardless of the casing. A threshold for the length of
-the identifer may be specified to suppress the checks for short names.
+to the identifiers, regardless of the casing.
 
 Many configuration options are available, in order to be able to create
 different rules for different kinds of identifiers. In general, the rules are
@@ -1186,6 +1185,14 @@ After:
 
     Identifier naming checks won't be enforced for local variable names
     matching this regular expression.
+
+For example using values of:
+
+   - LocalVariableCase of ``CamelCase``
+   - LocalVariableIgnoredRegexp of ``\w{1,2}``
+
+Will exclude variables with a length less than or equal to 2 from the
+camel case check applied to other variables.
 
 .. option:: LocalVariableSuffix
 
