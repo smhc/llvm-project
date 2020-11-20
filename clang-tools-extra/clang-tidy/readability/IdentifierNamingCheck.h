@@ -52,24 +52,10 @@ public:
     NamingStyle() = default;
 
     NamingStyle(llvm::Optional<CaseType> Case, const std::string &Prefix,
-                const std::string &Suffix, const std::string &IgnoredRegexpStr)
-        : Case(Case), Prefix(Prefix), Suffix(Suffix),
-          IgnoredRegexpStr(IgnoredRegexpStr) {
-      // Create an 'invalid' Regexp if empty
-      IgnoredRegexp = IgnoredRegexpStr.empty()
-                          ? llvm::Regex()
-                          : llvm::Regex("^" + IgnoredRegexpStr + "$");
-    }
-
-    NamingStyle(const NamingStyle &O)
-        : NamingStyle(O.Case, O.Prefix, O.Suffix, O.IgnoredRegexpStr) {}
-    NamingStyle &operator=(NamingStyle Style) {
-      std::swap(Prefix, Style.Prefix);
-      std::swap(Suffix, Style.Suffix);
-      std::swap(IgnoredRegexpStr, Style.IgnoredRegexpStr);
-      std::swap(IgnoredRegexp, Style.IgnoredRegexp);
-      return *this;
-    }
+                const std::string &Suffix, const std::string &IgnoredRegexpStr);
+    NamingStyle(const NamingStyle &O) = delete;
+    NamingStyle &operator=(NamingStyle &&O) = default;
+    NamingStyle(NamingStyle &&O) = default;
 
     llvm::Optional<CaseType> Case;
     std::string Prefix;

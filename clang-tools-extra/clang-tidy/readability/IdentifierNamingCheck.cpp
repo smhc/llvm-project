@@ -122,10 +122,29 @@ static StringRef const StyleNames[] = {
 #undef NAMING_KEYS
 // clang-format on
 
+IdentifierNamingCheck::NamingStyle::NamingStyle(
+    llvm::Optional<IdentifierNamingCheck::CaseType> Case,
+    const std::string &Prefix, const std::string &Suffix,
+    const std::string &IgnoredRegexpStr)
+    : Case(Case), Prefix(Prefix), Suffix(Suffix),
+      IgnoredRegexpStr(IgnoredRegexpStr) {
+  if (!IgnoredRegexpStr.empty()) {
+    IgnoredRegexp =
+        llvm::Regex(llvm::SmallString<128>({"^", IgnoredRegexpStr, "$"}));
+    if (!IgnoredRegexp.isValid()) {
+      llvm::errs() << "Invalid IgnoredRegexp regular expression: "
+                   << IgnoredRegexpStr;
+    }
+  } else {
+    // Store an 'invalid' Regexp if empty string
+    IgnoredRegexp = llvm::Regex();
+  }
+}
+
 static IdentifierNamingCheck::FileStyle
 getFileStyleFromOptions(const ClangTidyCheck::OptionsView &Options) {
-  SmallVector<llvm::Optional<IdentifierNamingCheck::NamingStyle>, 0> Styles(
-      SK_Count);
+  SmallVector<llvm::Optional<IdentifierNamingCheck::NamingStyle>, 0> Styles;
+  Styles.resize(SK_Count);
   SmallString<64> StyleString;
   for (unsigned I = 0; I < SK_Count; ++I) {
     StyleString = StyleNames[I];
