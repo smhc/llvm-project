@@ -131,13 +131,9 @@ IdentifierNamingCheck::NamingStyle::NamingStyle(
   if (!IgnoredRegexpStr.empty()) {
     IgnoredRegexp =
         llvm::Regex(llvm::SmallString<128>({"^", IgnoredRegexpStr, "$"}));
-    if (!IgnoredRegexp.isValid()) {
+    if (!IgnoredRegexp.isValid())
       llvm::errs() << "Invalid IgnoredRegexp regular expression: "
                    << IgnoredRegexpStr;
-    }
-  } else {
-    // Store an 'invalid' Regexp if empty string
-    IgnoredRegexp = llvm::Regex();
   }
 }
 
