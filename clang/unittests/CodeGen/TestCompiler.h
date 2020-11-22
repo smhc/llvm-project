@@ -27,7 +27,7 @@ namespace llvm {
 struct TestCompiler {
   LLVMContext Context;
   clang::CompilerInstance compiler;
-  clang::CodeGenerator* CG;
+  std::unique_ptr<clang::CodeGenerator> CG;
   llvm::Module *M = nullptr;
   unsigned PtrSize = 0;
 
@@ -56,20 +56,18 @@ struct TestCompiler {
 
     compiler.createASTContext();
 
-    CG = CreateLLVMCodeGen(compiler.getDiagnostics(),
-                           "main-module",
-                           compiler.getHeaderSearchOpts(),
-                           compiler.getPreprocessorOpts(),
-                           compiler.getCodeGenOpts(),
-                           Context);
+    CG.reset(CreateLLVMCodeGen(compiler.getDiagnostics(),
+                               "main-module",
+                               compiler.getHeaderSearchOpts(),
+                               compiler.getPreprocessorOpts(),
+                               compiler.getCodeGenOpts(),
+                               Context));
   }
 
   void init(const char *TestProgram,
             std::unique_ptr<clang::ASTConsumer> Consumer = nullptr) {
-    assert(CG);
-
     if (!Consumer)
-      Consumer = std::unique_ptr<clang::ASTConsumer>(CG);
+      Consumer = std::move(CG);
 
     compiler.setASTConsumer(std::move(Consumer));
 
@@ -82,7 +80,8 @@ struct TestCompiler {
 
   const BasicBlock *compile() {
     clang::ParseAST(compiler.getSema(), false, false);
-    M = CG->GetModule();
+    M =
+      static_cast<clang::CodeGenerator&>(compiler.getASTConsumer()).GetModule();
 
     // Do not expect more than one function definition.
     auto FuncPtr = M->begin();

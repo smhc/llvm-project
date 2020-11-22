@@ -52,11 +52,11 @@ static bool test_codegen_fns_ran;
 // before forwarding that function to the CodeGenerator.
 
 struct MyASTConsumer : public ASTConsumer {
-  CodeGenerator* Builder;
+  std::unique_ptr<CodeGenerator> Builder;
   std::vector<Decl*> toplevel_decls;
 
-  MyASTConsumer(CodeGenerator* Builder_in)
-    : ASTConsumer(), Builder(Builder_in)
+  MyASTConsumer(std::unique_ptr<CodeGenerator> Builder_in)
+    : ASTConsumer(), Builder(std::move(Builder_in))
   {
   }
 
@@ -263,7 +263,8 @@ TEST(CodeGenExternalTest, CodeGenExternalTest) {
   LO.CPlusPlus = 1;
   LO.CPlusPlus11 = 1;
   TestCompiler Compiler(LO);
-  auto CustomASTConsumer = std::make_unique<MyASTConsumer>(Compiler.CG);
+  auto CustomASTConsumer
+    = std::make_unique<MyASTConsumer>(std::move(Compiler.CG));
 
   Compiler.init(TestProgram, std::move(CustomASTConsumer));
 

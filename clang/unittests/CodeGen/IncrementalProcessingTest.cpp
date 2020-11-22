@@ -116,7 +116,9 @@ TEST(IncrementalProcessing, EmitCXXGlobalInitFunc) {
     TestCompiler Compiler(LO);
     clang::CompilerInstance &CI = Compiler.compiler;
     CI.getPreprocessor().enableIncrementalProcessing();
-    CI.setASTConsumer(std::unique_ptr<ASTConsumer>(Compiler.CG));
+    CI.setASTConsumer(std::move(Compiler.CG));
+    clang::CodeGenerator& CG =
+      static_cast<clang::CodeGenerator&>(CI.getASTConsumer());
     CI.createSema(clang::TU_Prefix, nullptr);
 
     Sema& S = CI.getSema();
@@ -126,14 +128,14 @@ TEST(IncrementalProcessing, EmitCXXGlobalInitFunc) {
     Parser &P = *ParseOP.get();
 
     std::array<std::unique_ptr<llvm::Module>, 3> M;
-    M[0] = IncrementalParseAST(CI, P, *Compiler.CG, nullptr);
+    M[0] = IncrementalParseAST(CI, P, CG, nullptr);
     ASSERT_TRUE(M[0]);
 
-    M[1] = IncrementalParseAST(CI, P, *Compiler.CG, TestProgram1);
+    M[1] = IncrementalParseAST(CI, P, CG, TestProgram1);
     ASSERT_TRUE(M[1]);
     ASSERT_TRUE(M[1]->getFunction("funcForProg1"));
 
-    M[2] = IncrementalParseAST(CI, P, *Compiler.CG, TestProgram2);
+    M[2] = IncrementalParseAST(CI, P, CG, TestProgram2);
     ASSERT_TRUE(M[2]);
     ASSERT_TRUE(M[2]->getFunction("funcForProg2"));
     // First code should not end up in second module:

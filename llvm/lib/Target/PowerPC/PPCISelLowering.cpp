@@ -9326,7 +9326,7 @@ SDValue PPCTargetLowering::LowerBUILD_VECTOR(SDValue Op,
   // make a 4-byte splat element. For example: 2-byte splat of 0xABAB can be
   // turned into a 4-byte splat of 0xABABABAB.
   if (Subtarget.hasPrefixInstrs() && SplatSize == 2)
-    return getCanonicalConstSplat((SplatBits |= SplatBits << 16), SplatSize * 2,
+    return getCanonicalConstSplat(SplatBits | (SplatBits << 16), SplatSize * 2,
                                   Op.getValueType(), DAG, dl);
 
   if (Subtarget.hasPrefixInstrs() && SplatSize == 4)
@@ -11029,28 +11029,6 @@ SDValue PPCTargetLowering::LowerOperation(SDValue Op, SelectionDAG &DAG) const {
   case ISD::ATOMIC_CMP_SWAP:
     return LowerATOMIC_CMP_SWAP(Op, DAG);
   }
-}
-
-void PPCTargetLowering::LowerOperationWrapper(SDNode *N,
-                                              SmallVectorImpl<SDValue> &Results,
-                                              SelectionDAG &DAG) const {
-  SDValue Res = LowerOperation(SDValue(N, 0), DAG);
-
-  if (!Res.getNode())
-    return;
-
-  // Take the return value as-is if original node has only one result.
-  if (N->getNumValues() == 1) {
-    Results.push_back(Res);
-    return;
-  }
-
-  // New node should have the same number of results.
-  assert((N->getNumValues() == Res->getNumValues()) &&
-      "Lowering returned the wrong number of results!");
-
-  for (unsigned i = 0; i < N->getNumValues(); ++i)
-    Results.push_back(Res.getValue(i));
 }
 
 void PPCTargetLowering::ReplaceNodeResults(SDNode *N,
