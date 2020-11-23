@@ -146,7 +146,7 @@ getFileStyleFromOptions(const ClangTidyCheck::OptionsView &Options) {
     StyleString = StyleNames[I];
     size_t StyleSize = StyleString.size();
     StyleString.append("IgnoredRegexp");
-    std::string IgnoredRegexpStr = Options.get((StyleString).str(), "");
+    std::string IgnoredRegexpStr = Options.get(StyleString, "");
     StyleString.resize(StyleSize);
     StyleString.append("Prefix");
     std::string Prefix(Options.get(StyleString, ""));
