@@ -61,7 +61,7 @@ public:
     std::string Prefix;
     std::string Suffix;
     // Store both compiled and non-compiled forms so original value can be
-    // serialised
+    // serialized
     llvm::Regex IgnoredRegexp;
     std::string IgnoredRegexpStr;
   };
